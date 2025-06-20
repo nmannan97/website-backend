@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-backend         # ✅ This is required!
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website-backend
+  template:
+    metadata:
+      labels:
+        app: website-backend
+    spec:
+      containers:
+        - name: website-backend
+          image: nmannan97/website-backend
+          ports:
+            - containerPort: 5000

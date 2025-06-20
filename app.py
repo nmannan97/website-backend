@@ -31,6 +31,10 @@ with app.app_context():
         db.session.commit()
         print("Inserted score 95 using SQLAlchemy")
 
+@app.route("/")
+def hello():
+    return "✅ Backend is working!"
+
 @app.route('/submit-score', methods=['POST', 'GET'])
 def submit_score():
     if request.method == 'POST':
@@ -69,4 +73,4 @@ def submit_score():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)
