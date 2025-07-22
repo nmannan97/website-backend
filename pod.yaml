@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: website-pod
+spec:
+  containers:
+    - name: backend
+      image: nmannan97/website-backend
+      ports:
+        - containerPort: 5000
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80

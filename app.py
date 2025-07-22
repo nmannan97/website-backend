@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": ["https://www.nmannan.com", "http://localhost:3000"]}})
 
 # SQLite database path
 basedir = os.path.abspath(os.path.dirname(__file__))

@@ -1,19 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: website-backend         # ✅ This is required!
+  name: website-backend-dual
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: website-backend
+      app: website-backend-dual
   template:
     metadata:
       labels:
-        app: website-backend
+        app: website-backend-dual
     spec:
       containers:
-        - name: website-backend
+        - name: backend-1
           image: nmannan97/website-backend
           ports:
             - containerPort: 5000
+          env:
+            - name: INSTANCE
+              value: "A"
+        - name: backend-2
+          image: nmannan97/website-backend
+          ports:
+            - containerPort: 5001
+          env:
+            - name: INSTANCE
+              value: "B"
