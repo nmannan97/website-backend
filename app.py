@@ -33,7 +33,7 @@ with app.app_context():
 
 @app.route("/")
 def hello():
-    return "✅ Backend is working!"
+    return "Backend is up and working!"
 
 @app.route('/submit-score', methods=['POST', 'GET'])
 def submit_score():
