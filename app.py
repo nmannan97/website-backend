@@ -71,6 +71,9 @@ def submit_score():
         scores = [s.value for s in top_scores]
         return jsonify({"scores": scores}), 200
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return '404: This route does not exist on the API', 404
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=80)
